@@ -21,4 +21,11 @@ public class PotholeService {
 	public List<Pothole> getPotholes(){
 		return repository.findAll();
 	}
+
+	public byte[] getByIdPothole(int id) {
+		// TODO Auto-generated method stub
+		Pothole blobonly= repository.findById(id).orElse(null);
+		return blobonly.getBlobData();
+	}
+	
 }

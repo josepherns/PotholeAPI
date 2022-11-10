@@ -32,7 +32,18 @@ public class Pothole {
 	
 	@Lob
 	@Type(type="org.hibernate.type.ImageType")
-	private byte[] blobData;
+	public byte[] blobData;
+
+	@Column(name="imagePath")
+	public String imagePath;
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
+	}
 
 	public int getId() {
 		return id;
