@@ -3,6 +3,7 @@ package com.Pothole.app.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,12 @@ public class PotholeController {
 	@GetMapping("/GetPotholes")
 	public List<Pothole> findAllPotholes(){
 		x=0;
-		return service.getPotholes();
+		return service.getPotholes().getContent();
+	}
+	@GetMapping("/GetPotholes2")
+	public List<Pothole> findAllPotholes2(){
+		x=0;
+		return service.getPotholes2().getContent();
 	}
 	@GetMapping("/GetPot/{id}")
 	public byte[] findByIdPothole(@PathVariable int id) {
@@ -40,7 +46,7 @@ public class PotholeController {
 		if(x == 1) {
 			x=0;
 			System.out.println("Welcome");
-			return service.getPotholes();
+			return service.getPotholes().getContent();
 		}
 		System.out.println("qwaeeqw");
 		return null;
