@@ -30,9 +30,6 @@ public class Pothole {
 	@Column(name="longitude")
 	private Double longitude;
 	
-	@Lob
-	@Type(type="org.hibernate.type.ImageType")
-	public byte[] blobData;
 
 	@Column(name="imagePath")
 	public String imagePath;
@@ -85,13 +82,6 @@ public class Pothole {
 		this.longitude = longitude;
 	}
 
-	public byte[] getBlobData() {
-		return blobData;
-	}
-
-	public void setBlobData(byte[] blobData) {
-		this.blobData = blobData;
-	}
 	
 	
 	

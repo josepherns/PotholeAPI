@@ -25,30 +25,16 @@ public class PotholeController {
 	@GetMapping("/GetPotholes")
 	public List<Pothole> findAllPotholes(){
 		x=0;
-		return service.getPotholes().getContent();
+		return service.getPotholes();
 	}
 	@GetMapping("/GetPotholes2")
 	public List<Pothole> findAllPotholes2(){
 		x=0;
 		return service.getPotholes2().getContent();
 	}
-	@GetMapping("/GetPot/{id}")
-	public byte[] findByIdPothole(@PathVariable int id) {
-		return service.getByIdPothole(id);
-	}
 	@PostMapping("/PostPothole")
 	public Pothole addPothole(@RequestBody Pothole pothole){
 		x=1;
         return service.savePothole(pothole);
     }
-	@GetMapping("/GetActive")
-	public List<Pothole> potholeCount() {
-		if(x == 1) {
-			x=0;
-			System.out.println("Welcome");
-			return service.getPotholes().getContent();
-		}
-		System.out.println("qwaeeqw");
-		return null;
-	}
 }
