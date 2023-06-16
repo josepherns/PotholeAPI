@@ -32,36 +32,12 @@ public class PotholeService {
 		return repository.save(pothole);
 	}
 	
-	public List<Pothole> getPotholes(){
+	public Page<Pothole> getPotholes(Pageable pageable){
+		return repository.findAll(pageable);
+	}
+	public List<Pothole> getAllPothole(){
 		return repository.findAll();
 	}
-	public Page<Pothole> getPotholes3(){
-			
-			long countall = count();
-			int countint = (int)countall;
-			Pageable limit = PageRequest.of(countstart-2,countstart-1);
-			if(countstart > countint) {
-				return null;
-			}
-			else {
-				countstart--;
-				return repository.findAllByOrderByIdDesc(limit);
-			}
-			
-		}
-	public Page<Pothole> getPotholes2(){
-			countstart=0;
-			long countall = count();
-			int countint = (int)countall;
-			Pageable limit = PageRequest.of(countstart,20);
-			if(countstart > countint) {
-				return null;
-			}
-			else {
-				countstart+=0;
-				return repository.findAllByOrderByIdDesc(limit);
-			}
-			
-		}
+	
 	
 }
